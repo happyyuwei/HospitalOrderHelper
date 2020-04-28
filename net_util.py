@@ -10,6 +10,8 @@ from email.header import Header
 from smtplib import SMTP_SSL
 import datetime
 
+import password
+
 # 预约 url
 order_url = "https://yuyue.shdc.org.cn/ajaxSearchOrderNumInfoForComment.action"
 
@@ -146,16 +148,15 @@ def send_email(text, to_list):
     #我也不知道合在一起写为什么不行，要分开来发
     for to_email in to_list:
         with SMTP_SSL(host="smtp.qq.com") as smtp:
-            smtp.login(user='happyyuwei1994@qq.com', password='akkiwxhmygbzicfb')
+            smtp.login(user=password.email, password=password.password)
 
             msg = MIMEText(text, _charset="utf8")
             msg["Subject"] = "医院预约日程提醒"
-            msg["from"] = 'happyyuwei1994@qq.com'
+            msg["from"] = password.email
             msg["to"] = to_email
 
             smtp.sendmail(from_addr="happyyuwei1994@qq.com",
                         to_addrs=to_email, msg=msg.as_string())
-            print("send email done.")
-
+            print("send email done："+to_email)
 
 # date = datetime.datetime.strptime("05-01", "%m-%d").date()
