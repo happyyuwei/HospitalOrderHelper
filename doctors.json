@@ -1,0 +1,24 @@
+[
+    {
+        "doctorName": "郑迪",
+        "hospital": "肺科医院",
+        "department": "肿瘤科",
+        "title":"主任医师",
+        "platformHosId": "25",
+        "platformDeptId": "83",
+        "platformDoctorId": "28107",
+        "docInfo.hisDoctId": "2322",
+        "nextNumInfo": "0"
+    },
+    {
+        "doctorName": "周崧雯",
+        "hospital": "肺科医院",
+        "department": "肿瘤科",
+        "title":"主任医师",
+        "platformHosId": "25",
+        "platformDeptId": "83",
+        "platformDoctorId": "28103",
+        "docInfo.hisDoctId": "2220",
+        "nextNumInfo": "0"
+    }
+]
