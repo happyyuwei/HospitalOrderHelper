@@ -65,7 +65,7 @@ def generate_reminder(doctor_name, full_list, new_list, warning_list, accident_l
         warning_flag=False
 
         if len(full_list) > 0:
-            full_reminder = "目前已预约满的日期包括："+list_to_string(full_list)
+            full_reminder = "以下日期最后一个名额已预约："+list_to_string(full_list)
             warning_flag=True
         if len(new_list) > 0:
             new_reminder = "新增可预约日期包括："+list_to_string(new_list)
@@ -98,7 +98,7 @@ def generate_reminder(doctor_name, full_list, new_list, warning_list, accident_l
 
         text=text+"\n"+summary
 
-        note="注：本信息由就诊预约助手自动发送，请勿回复。详细信息请留意医院官网。"
+        note="注：本信息由就诊预约助手自动发送，请勿回复。详细信息请留意医院官网。\n开发：变蝙蝠侠"
         text=text+note
         return text, warning_flag
 
@@ -221,6 +221,7 @@ class Schedule:
 
         if warning_flag==True:
             net_util.send_email(reminder_text, self.email_list)
+            net_util.send_wechat(reminder_text)
             print(reminder_text)
         
         # 更新状态
@@ -254,7 +255,6 @@ def loop(schedule_config):
 
     #启动循环任务
     while True:
-
         for schedule in schedule_list:
             try:
                 schedule.run()

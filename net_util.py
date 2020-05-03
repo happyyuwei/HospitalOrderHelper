@@ -9,6 +9,7 @@ from email.mime.text import MIMEText
 from email.header import Header
 from smtplib import SMTP_SSL
 import datetime
+import time
 
 import password
 
@@ -160,3 +161,14 @@ def send_email(text, to_list):
             print("send email done："+to_email)
 
 # date = datetime.datetime.strptime("05-01", "%m-%d").date()
+
+def send_wechat(text):
+    import itchat
+    itchat.auto_login(hotReload=False)# 扫码自动登陆
+
+    author = itchat.search_chatrooms(name='home')[0]
+    author.send(text)
+    print("send wechat done.")
+    time.sleep(5)
+    itchat.logout()
+    
