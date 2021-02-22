@@ -81,6 +81,9 @@ def send_email(text, to_list, sender):
 
 def watch():
     doctor_time_dict = parse_page(get_page())
+
+    logging.info("grab info={}".format(doctor_time_dict))
+
     history = {}
 
     if os.path.exists("history.json") == True:
