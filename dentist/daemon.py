@@ -129,6 +129,4 @@ def main():
         time.sleep(sleep_time)
 
 
-# main()
-
-print(time.localtime(time.time()))
+main()
