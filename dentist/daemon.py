@@ -108,10 +108,16 @@ def watch():
         for each in diff:
             text = text+"    {}： {}\r\n".format(each, diff[each])
 
-        text = text+"\r\n注：本信息由就诊预约助手自动发送，请勿回复。详细信息请留意医院官网。\r\n开发：@变蝙蝠侠"
+        message = text+"\r\n注：本信息由就诊预约助手自动发送，请勿回复。详细信息请留意医院官网。\r\n开发：@变蝙蝠侠"
 
-        send_email(text, ["happyyuwei1994@qq.com",
-                          "1257064323@qq.com"], "happyyuwei1994@qq.com")
+        send_email(message,
+                   [
+                       "happyyuwei1994@qq.com",
+                       "1257064323@qq.com",
+                       "1932143535@qq.com"
+                   ],
+                   "happyyuwei1994@qq.com"
+                   )
         print(text)
 
 
@@ -119,7 +125,7 @@ def main():
 
     while True:
         watch()
-        # watching every 60 seconds 
+        # watching every 60 seconds
         localtime = time.localtime(time.time())
         if localtime.tm_hour >= 7 and localtime.tm_hour <= 8:
             sleep_time = 10+int(random.random()*5)
