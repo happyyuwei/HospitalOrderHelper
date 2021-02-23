@@ -67,7 +67,7 @@ def send_email(text, to_list, sender):
     # 我也不知道合在一起写为什么不行，要分开来发
     for to_email in to_list:
         with SMTP_SSL(host="smtp.qq.com") as smtp:
-            smtp.login(user=sender, password="vunfvcqpssxfbafj")
+            smtp.login(user=sender, password="zfvvxdxghfgniahi")
 
             msg = MIMEText(text, _charset="utf8")
             msg["Subject"] = "医院预约日程提醒"
@@ -93,7 +93,7 @@ def watch():
     diff = {}
     for date in doctor_time_dict:
         if date in history:
-            if doctor_time_dict[date] != "已满":
+            if doctor_time_dict[date] != history[date]:
                 diff[date] = doctor_time_dict[date]
         else:
             diff[date] = doctor_time_dict[date]
